@@ -40,9 +40,7 @@ public class Pizzaiolo implements Runnable {
 
     private void makePizza(PizzaOrder pizzaOrder) throws InterruptedException {
         Thread.sleep(PIZZA_PREP_TIME_IN_MILLIS);
-        synchronized (orderQueue) {
-            piazzoloEventHandler.orderFinished(this, pizzaOrder);
-        }
+        piazzoloEventHandler.orderFinished(this, pizzaOrder);
     }
 
     public void stop() {
